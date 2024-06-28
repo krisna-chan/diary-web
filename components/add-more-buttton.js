@@ -110,3 +110,4 @@ function prepareEditNoteData(index) {
     addMore.classList.add('hidden');
 }
 
+
