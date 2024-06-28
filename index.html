@@ -15,19 +15,15 @@
     <header>
     </header>
     <main class="note-container blury">
-
-        <div class="note">
-        </div>
-
     </main>
 
     <section id="more-note" class="mid more-note">
           <div class="modal-body mid">
-            <p>Task Title</p>
-            <input type="text" class="form-control" name="" id="textInput">
+            <p>Note title</p>
+            <input type="text" placeholder="Untitled" class="form-control" name="" id="textInput">
             <div id="msg"></div>
-            <p>Description</p>
-            <textarea name="" class="form-control" id="textarea" cols="30" rows="5"></textarea>
+            <p>what's on your mind today?</p>
+            <textarea name="" class="form-control" id="note-content" cols="30" rows="5"></textarea>
             <button type="submit" id="submit">
               save note
             </button>
@@ -42,17 +38,7 @@
         </button>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="form">
+<div class="form sign-up-form">
   <div class="title">
     <img draggable="false" src="https://mystickermania.com/cdn/stickers/super-mario/mario-mushroom-pixel-512x512.png" width="70px" height="80px" alt="">
     <h3>
@@ -61,17 +47,16 @@
     <img draggable="false" src="https://mystickermania.com/cdn/stickers/super-mario/mario-mushroom-pixel-512x512.png" width="70px" height="80px" alt="">
   <br>
     </div> 
-  <input class="input" placeholder="Username" type="username">
-  <input class="input" name="password" placeholder="Password" type="password">
-  <button class="button-confirm">Sign In</button>
-</div> -->
+  <input id="username-input" class="input" placeholder="Username" type="username">
+  <input id="password-input" class="input" name="password" placeholder="Password" type="password">
+  <button id="sign-in" class="button-confirm">Sign In</button>
+</div>
+
 </body>
 <!-- <script type="module" src="./index.js"></script> -->
-
-
+<script  src = "./components/add-more-buttton.js"></script> 
 <script src="./components/navigation-bar.js"></script>
-<script src =  "./components/note-card.js"></script>
-<script src = "./components/add-more-buttton.js"></script> 
+<!-- <script src =  "./components/note-card.js"></script> -->
 
 
 </html>

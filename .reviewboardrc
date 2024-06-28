@@ -1,0 +1,5 @@
+REVIEWBOARD_URL = "https://review.clp.kr/"
+REPOSITORY = "Luck/Yun-Chankrisna/Diary-Web"
+REPOSITORY_TYPE = "git"
+BRANCH = "feature/create"
+LAND_DEST_BRANCH = "feature/create"
