@@ -194,3 +194,4 @@ if (storedData && storedData.length > 0) {
 
 //-------- |Call loadData function to initialize the signUp array| --------//
 loadData();
+
