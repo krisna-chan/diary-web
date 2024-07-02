@@ -1,197 +1,142 @@
-//-------- |Get elements by class name and ID| --------//
-const blury = document.getElementsByClassName('blury');
-const moreNote = document.getElementById('more-note');
-const addMore = document.getElementById("add-more");
-const noteContent = document.getElementById("note-content");
-let textInput = document.getElementById("textInput");
-let submitButton = document.getElementById("submit");
-let errorMsg = document.getElementById("msg");
-let closeButton = document.getElementById("close");
-let noteContainer = document.getElementsByClassName("note-container")[0];
+class NoteApp {
+    constructor() {
+        //-------- |Get elements by class name and ID| --------//
+        this.blury = document.getElementsByClassName('blury');
+        this.moreNote = document.getElementById('more-note');
+        this.addMore = document.getElementById("add-more");
+        this.noteContent = document.getElementById("note-content");
+        this.textInput = document.getElementById("textInput");
+        this.submitButton = document.getElementById("submit");
+        this.errorMsg = document.getElementById("msg");
+        this.closeButton = document.getElementById("close");
+        this.noteContainer = document.getElementsByClassName("note-container")[0];
+        this.noteDate = document.getElementById("noteDate");
 
-//-------- |Initialize data and editing index| --------//
-let data = JSON.parse(localStorage.getItem('data')) || [];
-let editingIndex = -1;
+        //-------- |Initialize data and editing index| --------//
+        this.data = JSON.parse(localStorage.getItem('data')) || [];
+        this.editingIndex = -1;
 
-//-------- |Add event listener for 'Add More' button| --------//
-addMore.addEventListener("click", () => {
-    Array.from(blury).forEach(element => {
-        element.classList.toggle("active-add-more");
-    });
-    textInput.value = "";
+        //-------- |Add event listeners| --------//
+        this.addMore.addEventListener("click", this.toggleAddMore.bind(this));
+        this.submitButton.addEventListener("click", this.handleSubmit.bind(this));
+        this.closeButton.addEventListener("click", this.closeModal.bind(this));
 
-    addMore.classList.add('hidden');
-    moreNote.classList.toggle('active-note');
-});
-
-//-------- |Add event listener for 'Submit' button| --------//
-submitButton.addEventListener("click", () => {
-    if (validation()) {
-        if (editingIndex !== -1) {
-            updateNoteData(editingIndex);
-            editingIndex = -1;
-        } else {
-            pushData();
-        }
-        textInput.value = "";
-        noteContent.value = "";
-        console.log(data);
+        //-------- |Get data from localStorage and display it| --------//
+        this.getData();
     }
-});
 
-//-------- |Close modal function| --------//
-function closeModal(e) {
-    e.addEventListener("click", () => {
-        moreNote.classList.toggle('active-note');
-        Array.from(blury).forEach(element => {
+    toggleAddMore() {
+        Array.from(this.blury).forEach(element => {
             element.classList.toggle("active-add-more");
         });
-        addMore.classList.toggle('hidden');
-    });
-}
+        this.textInput.value = "";
+        this.noteDate.value = "";
 
-//-------- |Validation function for text input| --------//
-function validation() {
-    if (textInput.value === "") {
-        errorMsg.innerHTML = "Title must not be empty";
-        return false;
-    } else {
-        console.log("success");
-        errorMsg.innerHTML = "";
-        return true;
+        this.addMore.classList.add('hidden');
+        this.moreNote.classList.toggle('active-note');
     }
-}
 
-//-------- |Create note elements dynamically| --------//
-function createNote() {
-    noteContainer.innerHTML = "";
-    data.forEach((note, index) => {
-        noteContainer.innerHTML += `
-            <div class="note-content">
-                <div class="note-logo">
-                    <img src="./assets/download.png" width="80" height="80" alt="logo" draggable="false">
-                    <h3 class="note-title">${note.title}</h3>
-                    <form action="" class="note-title">
-                    </form>
+    handleSubmit() {
+        if (this.validation()) {
+            if (this.editingIndex !== -1) {
+                this.updateNoteData(this.editingIndex);
+                this.editingIndex = -1;
+            } else {
+                this.pushData();
+            }
+            this.textInput.value = "";
+            this.noteContent.value = "";
+            this.noteDate.value = "";
+            console.log(this.data);
+        }
+    }
+
+    closeModal() {
+        this.moreNote.classList.toggle('active-note');
+        Array.from(this.blury).forEach(element => {
+            element.classList.toggle("active-add-more");
+        });
+        this.addMore.classList.toggle('hidden');
+    }
+
+    validation() {
+        if (this.textInput.value === "") {
+            this.errorMsg.innerHTML = "Title must not be empty";
+            return false;
+        } else if (this.noteDate.value === "") {
+            this.errorMsg.innerHTML = "Date must not be empty";
+            return false;
+        } else {
+            console.log("success");
+            this.errorMsg.innerHTML = "";
+            return true;
+        }
+    }
+
+    createNote() {
+        this.noteContainer.innerHTML = "";
+        this.data.forEach((note, index) => {
+            this.noteContainer.innerHTML += `
+                <div class="note-content">
+                    <div class="note-logo">
+                        <img src="./assets/download.png" width="80" height="80" alt="logo" draggable="false">
+                        <h3 class="note-title">${note.title}</h3>
+                        <p class="note-date">Date: ${note.date}</p>
                     </div>
-                    </div>
-                    <div class="crud-function">
-                        <button type="button" onclick="deleteNoteData(${index})">
-                            <img src="../assets/icons/trash.svg" alt="delete note">
-                        </button>
-                        <button type="button" onclick="prepareEditNoteData(${index})">
-                            <img src="../assets/icons/pen.svg" alt="edit note">
-                        </button>
-                    </div>
-        `;
-    });
-}
-
-//-------- |Push new data to the array and update localStorage| --------//
-function pushData() {
-    data.push({
-        title: textInput.value,
-        content: noteContent.value,
-    });
-    localStorage.setItem('data', JSON.stringify(data));
-    createNote();
-}
-
-//-------- |Prepare to edit note data| --------//
-function prepareEditNoteData(index) {
-    const note = data[index];
-    textInput.value = note.title;
-    noteContent.value = note.content;
-    editingIndex = index;
-    moreNote.classList.add('active-note');
-    Array.from(blury).forEach(element => {
-        element.classList.add("active-add-more");
-    });
-    addMore.classList.add('hidden');
-}
-
-
-//-------- |Update existing note data| --------//
-function updateNoteData(index) {
-    data[index].title = textInput.value;
-    data[index].content = noteContent.value;
-    localStorage.setItem('data', JSON.stringify(data));
-    createNote();
-}
-
-//-------- |Delete note data and update localStorage| --------//
-function deleteNoteData(index) {
-    data.splice(index, 1);
-    localStorage.setItem('data', JSON.stringify(data));
-    createNote();
-}
-
-//-------- |Get data from localStorage and display it| --------//
-function getData() {
-    createNote();
-}
-
-//-------- |Call functions to close modal and get data on load| --------//
-closeModal(closeButton);
-getData();
-
-
-
-
-
-//-------- |Initialize sign-up array from localStorage or as an empty array if not present| --------//
-let signUp = JSON.parse(localStorage.getItem('sign-up')) || [];
-
-//-------- |Get username and password input elements| --------//
-let usernameInput = document.getElementById('username-input');
-let passwordInput = document.getElementById('password-input');
-
-//-------- |Get confirm sign-in button element| --------//
-const confirmSignIn = document.getElementById('sign-in');
-
-//-------- |Add event listener for 'Sign In' button| --------//
-confirmSignIn.addEventListener('click', () => {
-    //-------- |Validate input fields| --------//
-    if (usernameInput.value === '' || passwordInput.value === '') {
-        alert('Both username and password must be filled out');
-        return;
+                </div>
+                <div class="crud-function">
+                    <button type="button" onclick="noteApp.deleteNoteData(${index})">
+                        <img src="../assets/icons/trash.svg" alt="delete note">
+                    </button>
+                    <button type="button" onclick="noteApp.prepareEditNoteData(${index})">
+                        <img src="../assets/icons/pen.svg" alt="edit note">
+                    </button>
+                </div>
+            `;
+        });
     }
 
-    //-------- |Push new user data to signUp array| --------//
-    signUp.push({
-        username: usernameInput.value,
-        password: passwordInput.value
-    });
-
-    //-------- |Save signUp array to localStorage| --------//
-    localStorage.setItem('sign-up', JSON.stringify(signUp));
-    
-    //-------- |Log signUp array to console| --------//
-    console.log(signUp);
-    
-    //-------- |Clear input fields after submission| --------//
-    usernameInput.value = '';
-    passwordInput.value = '';
-});
-
-//-------- |Function to load existing data from localStorage on page load| --------//
-const storedData = JSON.parse(localStorage.getItem('sign-up'));
-function loadData() {
-    if (storedData && storedData.length > 0) {
-        signUp = storedData;
-        console.log('Loaded sign-up data from localStorage:', signUp);
-        //-------- |Optionally hide the sign-up form if data exists| --------//
-    } else {
-        console.log('No existing sign-up data found in localStorage.');
+    pushData() {
+        this.data.push({
+            title: this.textInput.value,
+            content: this.noteContent.value,
+            date: this.noteDate.value,
+        });
+        localStorage.setItem('data', JSON.stringify(this.data));
+        this.createNote();
     }
-}
-const signUpForms = document.getElementsByClassName('sign-up-form');
-if (storedData && storedData.length > 0) {
-    for (let i = 0; i < signUpForms.length; i++) {
-        signUpForms[i].style.display = "none";
+
+    prepareEditNoteData(index) {
+        const note = this.data[index];
+        this.textInput.value = note.title;
+        this.noteContent.value = note.content;
+        this.noteDate.value = note.date;
+        this.editingIndex = index;
+        this.moreNote.classList.add('active-note');
+        Array.from(this.blury).forEach(element => {
+            element.classList.add("active-add-more");
+        });
+        this.addMore.classList.add('hidden');
+    }
+
+    updateNoteData(index) {
+        this.data[index].title = this.textInput.value;
+        this.data[index].content = this.noteContent.value;
+        this.data[index].date = this.noteDate.value;
+        localStorage.setItem('data', JSON.stringify(this.data));
+        this.createNote();
+    }
+
+    deleteNoteData(index) {
+        this.data.splice(index, 1);
+        localStorage.setItem('data', JSON.stringify(this.data));
+        this.createNote();
+    }
+
+    getData() {
+        this.createNote();
     }
 }
 
-//-------- |Call loadData function to initialize the signUp array| --------//
-loadData();
-
+// Instantiate the class
+const noteApp = new NoteApp();

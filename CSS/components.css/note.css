@@ -38,3 +38,6 @@
 .note-title{
     text-overflow:ellipsis !important;
 }
+.note-date{
+    position: relative;
+}

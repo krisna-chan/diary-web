@@ -12,6 +12,7 @@
     background:url(https://upload.wikimedia.org/wikipedia/commons/7/7a/Pixel_Art_Background.jpg);
     background-position: center;
     background-size: contain;
+    flex-direction: column;
 }
 .modal-body{
     flex-direction: column!important;

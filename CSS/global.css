@@ -1,8 +1,10 @@
+/* -------- | css styling imported from other files. | -------------- */
 @import url("./components.css/button.css");
 @import url("./components.css/modal.css");
 @import url("./components.css/navigation-bar.css");
 @import url("./components.css/note.css");
 
+/* ------------- | global styling | ------------- */
 body{
     box-sizing: border-box;
     padding: 0;
@@ -30,62 +32,3 @@ body{
   display: flex;
   margin: auto;
 }
-.form {
-    --input-focus: #2d8cf0;
-    --font-color: #323232;
-    --font-color-sub: #666;
-    --bg-color: #FFFDB5;
-    --main-color: black;
-    padding: 20px;
-    background: #FFC96F;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 20px;
-    border-radius: 5px;
-    border: 2px solid var(--main-color);
-    box-shadow: 4px 4px var(--main-color);
-   display: flex;
-   margin : auto;
-   max-width : 400px;
-  }
-  
-  .title {
-    color: var(--font-color);
-    font-weight: 900;
-    font-size: 30px;
-    margin-bottom: 25px;
-  }
-  
-  .title span {
-    color: var(--font-color-sub);
-    font-weight: 600;
-    font-size: 17px;
-  }
-  
-  .input {
-    width: 250px;
-    height: 40px;
-    border-radius: 5px;
-    border: 2px solid var(--main-color);
-    background-color: var(--bg-color);
-    box-shadow: 4px 4px var(--main-color);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--font-color);
-    padding: 5px 10px;
-    outline: none;
-   margin : auto;
-  }
-  
-  .input::placeholder {
-    color: var(--font-color-sub);
-    opacity: 0.8;
-  }
-  
-  .input:focus {
-    border: 2px solid var(--input-focus);
-  }
-  
-  
