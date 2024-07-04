@@ -79,17 +79,17 @@ class NoteApp {
             this.noteContainer.innerHTML += `
                 <div class="note-content">
                     <div class="note-logo">
-                        <img src="./assets/download.png" width="80" height="80" alt="logo" draggable="false">
+                        <img src ="../assets/pictures/orange_cat.png" width="80" height="80" alt="logo" draggable="false">
                         <h3 class="note-title">${note.title}</h3>
                         <p class="note-date">Date: ${note.date}</p>
                     </div>
                 </div>
                 <div class="crud-function">
                     <button type="button" onclick="noteApp.deleteNoteData(${index})">
-                        <img src="../assets/icons/trash.svg" alt="delete note">
+                        <img src="./assets/icons/trash.svg" alt="delete note">
                     </button>
                     <button type="button" onclick="noteApp.prepareEditNoteData(${index})">
-                        <img src="../assets/icons/pen.svg" alt="edit note">
+                        <img src="./assets/icons/pen.svg" alt="edit note">
                     </button>
                 </div>
             `;
