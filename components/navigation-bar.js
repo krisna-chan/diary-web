@@ -1,5 +1,5 @@
 const header = document.querySelector("header"); 
-const navTitle = 'My diary';
+const navTitle = 'Laazy diary';
 
 header.innerHTML = `
 <div class="nav-title-content">
