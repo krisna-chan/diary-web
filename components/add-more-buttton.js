@@ -31,7 +31,7 @@ class NoteApp {
         });
         this.textInput.value = "";
         this.noteDate.value = "";
-
+        this.noteContent.value = "";
         this.addMore.classList.add('hidden');
         this.moreNote.classList.toggle('active-note');
     }
@@ -47,7 +47,7 @@ class NoteApp {
             this.textInput.value = "";
             this.noteContent.value = "";
             this.noteDate.value = "";
-            console.log(this.data);
+            this.closeModal();
         }
     }
 
@@ -90,6 +90,9 @@ class NoteApp {
                     </button>
                     <button type="button" onclick="noteApp.prepareEditNoteData(${index})">
                         <img src="./assets/icons/pen.svg" alt="edit note">
+                    </button>
+                    <button type="button" onclick="noteApp.prepareEditNoteData(${index})">
+                        <img src="./assets/icons/view.svg" alt="edit note">
                     </button>
                 </div>
             `;

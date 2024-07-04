@@ -1,22 +1,56 @@
+/* Common styles */
 .active-add-more {
     filter: blur(20px);
 }
 
-.title{
+.title {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
     margin: auto;
 }
-#more-note{
-    background:url(https://upload.wikimedia.org/wikipedia/commons/7/7a/Pixel_Art_Background.jpg);
+
+#more-note {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/7/7a/Pixel_Art_Background.jpg);
     background-position: center;
-    background-size: contain;
     flex-direction: column;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.modal-body{
-    flex-direction: column!important;
+
+.modal-body {
+    flex-direction: column !important;
 }
-#msg{
+
+#msg {
     color: #FF6969;
+}
+
+/* Small mobile */
+@media (max-width: 320px) {
+    #more-note {
+        max-width: 320px;
+    }
+}
+
+/* Medium mobile */
+@media (max-width: 480px) {
+    #more-note {
+        max-width: 480px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    #more-note {
+        max-width: 40%;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    #more-note {
+        max-width: 40%; /* Or any width you prefer for larger screens */
+    }
 }
