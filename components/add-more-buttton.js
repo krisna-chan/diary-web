@@ -77,6 +77,7 @@ class NoteApp {
         this.noteContainer.innerHTML = "";
         this.data.forEach((note, index) => {
             this.noteContainer.innerHTML += `
+            <div class = "note-contain">
                 <div class="note-content">
                     <div class="note-logo">
                         <img src ="../assets/pictures/orange_cat.png" width="80" height="80" alt="logo" draggable="false">
@@ -95,6 +96,7 @@ class NoteApp {
                         <img src="./assets/icons/view.svg" alt="edit note">
                     </button>
                 </div>
+            </div>
             `;
         });
     }
