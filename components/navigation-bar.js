@@ -1,3 +1,4 @@
+// ----------|Dynamically insert Navigation bar |---------------//
 const header = document.querySelector("header"); 
 const navTitle = 'Laazy diary';
 

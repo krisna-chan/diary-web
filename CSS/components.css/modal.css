@@ -1,4 +1,4 @@
-/* Common styles */
+/*-------- | Common styles | ---------- */
 .active-add-more {
     filter: blur(20px);
 }
@@ -27,30 +27,30 @@
     color: #FF6969;
 }
 
-/* Small mobile */
+/* --------|Small mobile|------- */
 @media (max-width: 320px) {
     #more-note {
         max-width: 320px;
     }
 }
 
-/* Medium mobile */
+/* -----|Medium mobile|----- */
 @media (max-width: 480px) {
     #more-note {
         max-width: 480px;
     }
 }
 
-/* Tablet */
+/* --------|Tablet|------ */
 @media (max-width: 768px) {
     #more-note {
         max-width: 40%;
     }
 }
 
-/* Larger screens */
+/* ---------|Larger screens|----- */
 @media (min-width: 769px) {
     #more-note {
-        max-width: 40%; /* Or any width you prefer for larger screens */
+        max-width: 40%;
     }
 }
