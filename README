@@ -1,0 +1,32 @@
+## Diary Taking Website
+# Website name : Laazy diary
+
+## Project Information
+
+Repository :https://git.clp.kr/anbschool/2nd/luck/yun-chankrisna/diary_app<br/>
+Owner : Chankrina Yun <br/>
+Server : Versel <br/>
+Deployment : [link](https://lazydiary-luck2.vercel.app/)
+
+## Description
+
+My name is **Yun Chankrinsna** I recently started learning web development this is my first front-end project, I have applied what I learnt so far from self-studying into this Project.
+
+Clone source code
+
+```shell
+git clone https://git.clp.kr/anbschool/2nd/luck/yun-chankrisna/anuanewpage.git
+```
+## Convention guide
+
+I provide convention guide to better understand about code structure. To visit convention guide page click this [link](https://www.notion.so/Apple-Cloning-Journey-941bd02f12524f06814cbcb3b785ae60?pvs=4)
+
+## Programming Languages
+
+- HTML
+- CSS
+- JavaScript
+
+## Frameworks
+
+- [BootStrap](https://getbootstrap.com/)
