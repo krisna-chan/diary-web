@@ -17,6 +17,7 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 99;
 }
 
 .modal-body {
