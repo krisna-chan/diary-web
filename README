@@ -1,5 +1,6 @@
 ## Diary Taking Website
 # Website name : Laazy diary
+This document details the development of Laazy Diary, a web application designed to be a personal journal.
 
 ## Project Information
 
@@ -10,23 +11,20 @@ Deployment : [link](https://lazydiary-luck2.vercel.app/)
 
 ## Description
 
-My name is **Yun Chankrinsna** I recently started learning web development this is my first front-end project, I have applied what I learnt so far from self-studying into this Project.
+Hi there! I'm Chankrina Yun, a budding web developer. Laazy Diary is my first foray into creating CRUD (Create, Read, Update, Delete) applications. This project allowed me to apply the knowledge I've gained through self-study to build a functional website.
 
-Clone source code
+To access the source code for Laazy Diary, clone the repository using the following command:
 
 ```shell
-git clone https://git.clp.kr/anbschool/2nd/luck/yun-chankrisna/anuanewpage.git
+git clone https://github.com/krisna-chan/diary-web.git
 ```
 ## Convention guide
 
-I provide convention guide to better understand about code structure. To visit convention guide page click this [link](https://www.notion.so/Apple-Cloning-Journey-941bd02f12524f06814cbcb3b785ae60?pvs=4)
+I provide convention guide to better understand about code structure. To visit convention guide page click this [link](https://www.notion.so/convention-Guide-67c341d0c8794983acebc76e436f29de?pvs=4)
 
 ## Programming Languages
 
-- HTML
-- CSS
-- JavaScript
-
-## Frameworks
-
-- [BootStrap](https://getbootstrap.com/)
+#### Laazy Diary utilizes the following technologies:
+- HTML: Provides the website's structure and content.
+- CSS: Styles the website's visual elements for a user-friendly experience.
+- JavaScript: Enables dynamic behavior and interaction with the journal entries.
