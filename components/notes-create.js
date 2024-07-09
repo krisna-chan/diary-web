@@ -107,6 +107,7 @@ class NoteApp {
             </div>
             `;
         });
+        
     }
 
     pushData() {
