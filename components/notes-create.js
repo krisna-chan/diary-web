@@ -88,7 +88,7 @@ class NoteApp {
             <div class = "note-contain">
                 <div class="note-content">
                     <div class="note-logo">
-                        <img src ="./assets/pictures/orange_cat.png" width="80" height="80" alt="logo" draggable="false">
+                        <img src="./assets/pictures/orange_cat.png" width="80" height="80" alt="logo" draggable="false">
                         <h3 class="note-title">${note.title}</h3>
                         <p class="note-date">Date: ${note.date}</p>
                     </div>
@@ -107,6 +107,7 @@ class NoteApp {
             </div>
             `;
         });
+        
     }
 
     pushData() {
